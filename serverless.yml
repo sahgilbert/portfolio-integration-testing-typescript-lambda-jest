@@ -1,0 +1,25 @@
+service: jest-phone-number-api
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  profile: ServerlessIAMUserProfile
+
+functions:
+  - '${file(./src/handlers/phone-number/phone-number.serverless.yml)}'
+
+plugins:
+  - serverless-webpack
+  - serverless-offline
+
+package:
+  include:
+        - dist/**
+  individually: true
+  excludeDevDependencies: false
+
+custom:
+  webpack:
+    excludeFiles: src/**/*.test.[t|j]s
+  serverless-offline:
+    host: 0.0.0.0 # for docker container hosting
