@@ -31,7 +31,7 @@ $ npm run integration
 ```
 
 ## Read My Accompanying Blog
-- 
+- https://www.simongilbert.net/integration-testing-typescript-lambda-api-jest-supertest/
 
 
 ### License
